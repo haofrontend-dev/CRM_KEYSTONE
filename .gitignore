@@ -39,7 +39,7 @@ tsconfig.tsbuildinfo
 *.tsbuildinfo
 
 # Media uploads (user-generated, not tracked)
-media/
+# media/
 
 # Seed output / temp files
 seed-result.json

@@ -23,7 +23,7 @@ services:
       - "-c"
       - "log_statement=ddl"
     ports:
-      - "127.0.0.1:5435:5432"
+      - "0.0.0.0:5435:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
