@@ -224,6 +224,79 @@ export const FeaturesBlock: Block = {
   ],
 }
 
+export const FeatureCardsBlock: Block = {
+  slug: 'featureCards',
+  labels: { singular: 'Feature cards (image icons)', plural: 'Feature cards blocks' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'title', type: 'text' },
+    {
+      name: 'items',
+      type: 'array',
+      minRows: 1,
+      maxRows: 12,
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          admin: { description: 'Ảnh icon (ưu tiên). Để trống thì dùng "Image URL".' },
+        },
+        {
+          name: 'imageUrl',
+          type: 'text',
+          admin: { description: 'Đường dẫn ảnh tĩnh, vd /images/trang-chu/khac-biet-150.png' },
+        },
+        { name: 'title', type: 'text', required: true },
+        { name: 'body', type: 'textarea' },
+        { name: 'linkLabel', type: 'text', admin: { description: 'Vd: Xem thêm' } },
+        { name: 'linkHref', type: 'text', admin: { description: 'Vd: /keystone' } },
+      ],
+    },
+  ],
+}
+
+export const FeatureListBlock: Block = {
+  slug: 'featureList',
+  labels: { singular: 'Feature list (side image)', plural: 'Feature list blocks' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'title', type: 'text' },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      admin: { description: 'Ảnh lớn bên trái (ưu tiên). Để trống thì dùng "Image URL".' },
+    },
+    {
+      name: 'imageUrl',
+      type: 'text',
+      admin: { description: 'Đường dẫn ảnh tĩnh bên trái, vd /images/trang-chu/chose-bg.jpg' },
+    },
+    {
+      name: 'items',
+      type: 'array',
+      minRows: 1,
+      maxRows: 12,
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          admin: { description: 'Icon ảnh (ưu tiên). Để trống thì dùng "Icon URL".' },
+        },
+        {
+          name: 'imageUrl',
+          type: 'text',
+          admin: { description: 'Đường dẫn icon tĩnh, vd /images/trang-chu/chuong-trinh-chat-luong-80x80.png' },
+        },
+        { name: 'title', type: 'text', required: true },
+        { name: 'body', type: 'textarea' },
+      ],
+    },
+  ],
+}
+
 export const ImageBlock: Block = {
   slug: 'image',
   labels: { singular: 'Banner image', plural: 'Image blocks' },
@@ -495,6 +568,8 @@ export const pageBlocks = [
   TestimonialsBlock,
   ServicesBlock,
   FeaturesBlock,
+  FeatureCardsBlock,
+  FeatureListBlock,
   CategoryListBlock,
   ImageBlock,
   SplitBlock,

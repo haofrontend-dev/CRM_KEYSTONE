@@ -6,6 +6,8 @@ import { TeamBlock, type TeamBlockData } from './TeamBlock'
 import { TestimonialsBlock, type TestimonialsBlockData } from './TestimonialsBlock'
 import { ServicesBlock, type ServicesBlockData } from './ServicesBlock'
 import { FeaturesBlock, type FeaturesBlockData } from './FeaturesBlock'
+import { FeatureCardsBlock, type FeatureCardsBlockData } from './FeatureCardsBlock'
+import { FeatureListBlock, type FeatureListBlockData } from './FeatureListBlock'
 import { CtaBlock, type CtaBlockData } from './CtaBlock'
 import { ImageBlock, type ImageBlockData } from './ImageBlock'
 import { PartnersBlock, type PartnersBlockData } from './PartnersBlock'
@@ -51,6 +53,10 @@ export function BlockRenderer({
             return <ServicesBlock key={key} {...(b as unknown as ServicesBlockData)} />
           case 'features':
             return <FeaturesBlock key={key} {...(b as unknown as FeaturesBlockData)} />
+          case 'featureCards':
+            return <FeatureCardsBlock key={key} {...(b as unknown as FeatureCardsBlockData)} />
+          case 'featureList':
+            return <FeatureListBlock key={key} {...(b as unknown as FeatureListBlockData)} />
           case 'cta':
             return <CtaBlock key={key} {...(b as unknown as CtaBlockData)} />
           case 'image':

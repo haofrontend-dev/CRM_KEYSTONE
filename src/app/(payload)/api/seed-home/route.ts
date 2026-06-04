@@ -72,24 +72,30 @@ export async function POST() {
   const layout: Array<Record<string, unknown>> = [
     { blockType: 'heroSlider', slides, autoplayMs: 5000 },
     {
-      blockType: 'features',
+      blockType: 'featureCards',
       eyebrow: 'Định vị thương hiệu',
       title: 'Vì sao chọn Keystone',
       items: [
         {
-          icon: 'spark',
+          imageUrl: '/images/trang-chu/khac-biet-150.png',
           title: 'KHÁC BIỆT',
           body: 'Chúng tôi tiên phong và ứng dụng sâu công nghệ trong việc phát triển con người, có thể kế đến lãnh vực như L&D, HR, Training…',
+          linkLabel: 'Xem thêm',
+          linkHref: '/keystone',
         },
         {
-          icon: 'compass',
+          imageUrl: '/images/trang-chu/su-mang-trang-200.png',
           title: 'SỨ MẠNG',
           body: 'Chúng tôi là cầu nối giữa hiện tại và mong đợi, bằng cách phát triển con người và giúp khách hàng đi đến thành công.',
+          linkLabel: 'Xem thêm',
+          linkHref: '/keystone',
         },
         {
-          icon: 'shield',
+          imageUrl: '/images/trang-chu/gia-tri-cot-loi-200.png',
           title: 'GIÁ TRỊ',
           body: 'EXPERT; INTEGRITY; CREATIVE; VALUABLE & GO EXTRA MILE',
+          linkLabel: 'Xem thêm',
+          linkHref: '/keystone',
         },
       ],
     },
@@ -141,37 +147,38 @@ export async function POST() {
 
   layout.push(
     {
-      blockType: 'features',
+      blockType: 'featureList',
       eyebrow: 'Chọn chúng tôi',
       title: 'Vì sao doanh nghiệp chọn Keystone',
+      imageUrl: '/images/trang-chu/about-image.jpg',
       items: [
         {
-          icon: 'shield',
+          imageUrl: '/images/trang-chu/chuong-trinh-chat-luong-80x80.png',
           title: 'Chương trình chất lượng',
           body: 'Chương trình là những best practices trong công việc và thực tế của chuyên gia để chuyển giao.',
         },
         {
-          icon: 'chart',
+          imageUrl: '/images/trang-chu/can-doi-ngan-sach-53.png',
           title: 'Đầu tư hợp ngân sách',
           body: 'Chúng tôi có nhiều cách tiếp cận về mặt ngân sách giúp bạn cân đối đầu tư và đạt mục đích.',
         },
         {
-          icon: 'spark',
+          imageUrl: '/images/trang-chu/linh-hoat-chuyen-nghiep-80x80.png',
           title: 'Linh hoạt & Chuyên nghiệp',
           body: 'Linh hoạt trong nhiều cách tiếp cận và chuyển giao giải pháp nhằm tối đa hóa nguồn lực, sáng tạo và đạt mục tiêu.',
         },
         {
-          icon: 'users',
+          imageUrl: '/images/trang-chu/chuyen-gia-53x53.png',
           title: 'Chuyên gia giàu kinh nghiệm',
           body: 'Đội ngũ của chúng tôi là những chuyên gia đầu ngành trong lĩnh vực tương ứng.',
         },
         {
-          icon: 'compass',
+          imageUrl: '/images/trang-chu/phuong-phap-khoa-hoc-80x80.png',
           title: 'Phương pháp khoa học',
           body: 'Chúng tôi chuyển giao "cách làm tốt nhất" giúp bạn hiệu quả và nhanh chóng trở nên xuất sắc.',
         },
         {
-          icon: 'flag',
+          imageUrl: '/images/trang-chu/sang-tao-53.png',
           title: 'Sáng tạo và Đổi mới',
           body: 'Ứng dụng nhiều công cụ tư duy giúp giải quyết vấn đề một cách sáng tạo và đưa vào thực tiễn tạo ra lợi ích thiết thực.',
         },

@@ -24,7 +24,10 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  // Production (Vercel): dùng domain thật để URL media tuyệt đối.
+  // Local dev: để rỗng -> Payload dùng đường dẫn tương đối + origin của request,
+  // nên admin/login/media chạy đúng dù Next chạy ở cổng nào (3000/3002/3050...).
+  serverURL: process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_SITE_URL || '' : '',
   admin: {
     user: Users.slug,
     meta: { titleSuffix: '— Admin' },

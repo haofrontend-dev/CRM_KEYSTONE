@@ -504,6 +504,66 @@ export interface Page {
     | {
         eyebrow?: string | null;
         title?: string | null;
+        items?:
+          | {
+              /**
+               * Ảnh icon (ưu tiên). Để trống thì dùng "Image URL".
+               */
+              image?: (number | null) | Media;
+              /**
+               * Đường dẫn ảnh tĩnh, vd /images/trang-chu/khac-biet-150.png
+               */
+              imageUrl?: string | null;
+              title: string;
+              body?: string | null;
+              /**
+               * Vd: Xem thêm
+               */
+              linkLabel?: string | null;
+              /**
+               * Vd: /keystone
+               */
+              linkHref?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'featureCards';
+      }
+    | {
+        eyebrow?: string | null;
+        title?: string | null;
+        /**
+         * Ảnh lớn bên trái (ưu tiên). Để trống thì dùng "Image URL".
+         */
+        image?: (number | null) | Media;
+        /**
+         * Đường dẫn ảnh tĩnh bên trái, vd /images/trang-chu/chose-bg.jpg
+         */
+        imageUrl?: string | null;
+        items?:
+          | {
+              /**
+               * Icon ảnh (ưu tiên). Để trống thì dùng "Icon URL".
+               */
+              image?: (number | null) | Media;
+              /**
+               * Đường dẫn icon tĩnh, vd /images/trang-chu/chuong-trinh-chat-luong-80x80.png
+               */
+              imageUrl?: string | null;
+              title: string;
+              body?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'featureList';
+      }
+    | {
+        eyebrow?: string | null;
+        title?: string | null;
         description?: string | null;
         display?: ('accordion' | 'grid') | null;
         groups?:
@@ -1094,6 +1154,44 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     icon?: T;
+                    title?: T;
+                    body?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        featureCards?:
+          | T
+          | {
+              eyebrow?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    image?: T;
+                    imageUrl?: T;
+                    title?: T;
+                    body?: T;
+                    linkLabel?: T;
+                    linkHref?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        featureList?:
+          | T
+          | {
+              eyebrow?: T;
+              title?: T;
+              image?: T;
+              imageUrl?: T;
+              items?:
+                | T
+                | {
+                    image?: T;
+                    imageUrl?: T;
                     title?: T;
                     body?: T;
                     id?: T;
