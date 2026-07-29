@@ -17,6 +17,10 @@ const nextConfig = {
 
       // Neon / Supabase storage (nếu dùng sau này)
       { protocol: 'https', hostname: '*.supabase.co' },
+
+      // Production domain (media phục vụ qua https://keystone.com.vn)
+      { protocol: 'https', hostname: 'keystone.com.vn' },
+      { protocol: 'https', hostname: 'www.keystone.com.vn' },
     ],
   },
 }

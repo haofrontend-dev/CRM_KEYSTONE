@@ -23,7 +23,9 @@ services:
       - "-c"
       - "log_statement=ddl"
     ports:
-      - "0.0.0.0:5435:5432"
+      # Chỉ bind localhost (admin tool / build). App container nối DB nội bộ qua
+      # service name `postgres:5432`. KHÔNG để 0.0.0.0 (phơi DB ra internet).
+      - "127.0.0.1:5435:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -44,10 +46,65 @@ services:
       - SETGID
       - SETUID
 
+  # ---- App replicas (Payload + Next.js) behind the nginx LB ----
+  app1:
+    <<: &app-base
+      build:
+        context: .
+        network: host          # build needs DB at 127.0.0.1:5435
+        args:
+          # NEXT_PUBLIC_* is inlined into the public client bundle (not a secret).
+          NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        secrets:
+          # Passed via BuildKit mounts -> not baked into image history.
+          - payload_secret
+          - database_uri_build
+      image: cms-keystone-app:latest
+      restart: unless-stopped
+      environment:
+        NODE_ENV: production
+        # Secrets come from .env (gitignored), never hardcoded here.
+        # Internal URI reaches Postgres over the docker network (postgres:5432).
+        DATABASE_URI: ${DATABASE_URI_INTERNAL}
+        PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        RESEND_API_KEY: ${RESEND_API_KEY}
+        RESEND_FROM_EMAIL: ${RESEND_FROM_EMAIL}
+        CONTACT_ADMIN_EMAIL: ${CONTACT_ADMIN_EMAIL}
+      volumes:
+        # Bind host ./media so existing uploads are served + new uploads persist,
+        # shared across all 3 replicas.
+        - ./media:/app/media
+      depends_on:
+        postgres:
+          condition: service_healthy
+      networks:
+        - cms-internal
+        - edge
+    container_name: cms-app-1
+
+  app2:
+    <<: *app-base
+    container_name: cms-app-2
+
+  app3:
+    <<: *app-base
+    container_name: cms-app-3
+
+secrets:
+  payload_secret:
+    environment: PAYLOAD_SECRET
+  database_uri_build:
+    environment: DATABASE_URI
+
 networks:
   cms-internal:
     driver: bridge
     internal: false
+  # Shared with the global nginx LB (infra-lb). Created externally:
+  #   docker network create edge
+  edge:
+    external: true
 
 volumes:
   pgdata:

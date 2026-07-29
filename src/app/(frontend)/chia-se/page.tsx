@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Navbar } from '@/components/sections/Navbar'
+import { Navbar } from '@/components/sections/NavbarServer'
 import { Footer } from '@/components/sections/Footer'
 import { getPayloadClient } from '@/lib/payload'
 import { resolveMediaUrl, type MediaRel } from '@/components/blocks/types'

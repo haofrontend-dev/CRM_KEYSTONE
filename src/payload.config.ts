@@ -24,10 +24,13 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  // Production (Vercel): dùng domain thật để URL media tuyệt đối.
-  // Local dev: để rỗng -> Payload dùng đường dẫn tương đối + origin của request,
-  // nên admin/login/media chạy đúng dù Next chạy ở cổng nào (3000/3002/3050...).
-  serverURL: process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_SITE_URL || '' : '',
+  // serverURL rỗng (đường dẫn tương đối) khi chạy localhost / qua Cloudflare tunnel
+  // -> admin/login/media bám theo origin của request, chạy đúng ở mọi cổng & domain động.
+  // Chỉ dùng URL tuyệt đối khi NEXT_PUBLIC_SITE_URL là domain thật (vd Vercel).
+  serverURL: (() => {
+    const u = process.env.NEXT_PUBLIC_SITE_URL || ''
+    return u.includes('localhost') || u.includes('127.0.0.1') ? '' : u
+  })(),
   admin: {
     user: Users.slug,
     meta: { titleSuffix: '— Admin' },

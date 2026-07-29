@@ -27,8 +27,13 @@ export async function Footer() {
   const email = settings?.email || siteInfo.email
   const legalName = f.legalName || siteInfo.legalName
   const representative = f.representative || siteInfo.representative
+  const taxCode = (f as Record<string, string | undefined>).taxCode || (settings as unknown as { taxCode?: string })?.taxCode || siteInfo.taxCode
   const address = settings?.address || siteInfo.address
   const brand = settings?.siteName || siteInfo.brand
+  // Danh sách hotline/email đầy đủ (số/email chính lấy từ DB nếu có)
+  const hotlines = Array.from(new Set([hotline, ...siteInfo.hotlines]))
+  const emails = Array.from(new Set([email, ...siteInfo.emails]))
+  const telHref = (v: string) => `tel:${v.replace(/\s+/g, '')}`
 
   type BadgeData = {
     image?: MediaRel
@@ -56,8 +61,24 @@ export async function Footer() {
               {subSlogan}
             </p>
             <div className="mt-4 space-y-2 text-sm text-white/70">
-              <div><span className="font-semibold text-white">Hotline:</span> <a href={`tel:${hotline}`} className="hover:text-gold-400 transition">{hotline}</a></div>
-              <div><span className="font-semibold text-white">Email:</span> <a href={`mailto:${email}`} className="hover:text-gold-400 transition">{email}</a></div>
+              <div>
+                <span className="font-semibold text-white">Hotline:</span>{' '}
+                {hotlines.map((h, i) => (
+                  <span key={h}>
+                    {i > 0 && <span className="text-white/30"> · </span>}
+                    <a href={telHref(h)} className="hover:text-gold-400 transition">{h}</a>
+                  </span>
+                ))}
+              </div>
+              <div>
+                <span className="font-semibold text-white">Email:</span>{' '}
+                {emails.map((e, i) => (
+                  <span key={e}>
+                    {i > 0 && <span className="text-white/30"> · </span>}
+                    <a href={`mailto:${e}`} className="hover:text-gold-400 transition">{e}</a>
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -110,6 +131,7 @@ export async function Footer() {
             <div className="text-sm text-white/60 leading-[1.7]">
               <p className="font-semibold text-white/80">{legalName}</p>
               <p className="mt-1">Người đại diện: {representative}</p>
+              {taxCode && <p>Mã số thuế: {taxCode}</p>}
               <p>{address}</p>
             </div>
             <div className="flex items-center gap-4 shrink-0">

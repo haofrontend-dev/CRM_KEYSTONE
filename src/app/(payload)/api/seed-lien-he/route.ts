@@ -41,12 +41,12 @@ export async function POST() {
         {
           icon: 'flag',
           title: 'Hotline',
-          body: '0903 997 909 — Phục vụ từ Thứ 2 đến Chủ Nhật, 8h30 — 18h30.',
+          body: '0903 997 909 · 0933 088 286 · 0342 528 286 — Phục vụ từ Thứ 2 đến Chủ Nhật, 8h30 — 18h30.',
         },
         {
           icon: 'spark',
           title: 'Email',
-          body: 'training@keystone.vn — Phản hồi trong vòng 24 giờ làm việc.',
+          body: 'info@plusai.vn · training@plusai.vn — Phản hồi trong vòng 24 giờ làm việc.',
         },
       ],
     },
@@ -57,14 +57,15 @@ export async function POST() {
       title: 'Đối tác đào tạo & HR Tech tin cậy',
       paragraphs: [
         {
-          text: 'CÔNG TY CỔ PHẦN CÔNG NGHỆ VÀ ĐÀO TẠO KEYSTONE chuyên cung cấp giải pháp đào tạo, huấn luyện và công nghệ nhân sự cho doanh nghiệp tại Việt Nam.',
+          text: 'CÔNG TY TNHH 1YEARS (thương hiệu KEYSTONE) chuyên cung cấp giải pháp đào tạo, huấn luyện và công nghệ nhân sự cho doanh nghiệp tại Việt Nam.',
         },
         {
           text: 'Đội ngũ chuyên gia của chúng tôi đã đồng hành cùng nhiều khách hàng lớn như Bridgestone, Coca-Cola, Grab, Nestlé, Samsung, Sumitomo, Bayer, Hafele…',
         },
       ],
       bullets: [
-        { text: 'Người đại diện: NGUYỄN VĂN THỨC' },
+        { text: 'Người đại diện: Ngô Hà Tiên' },
+        { text: 'Mã số thuế: 0319452642' },
         { text: 'Đào tạo Inhouse — Public Training — Coaching 1-1' },
         { text: 'HR Tech — Marketing Automation — Ứng dụng AI' },
         { text: 'Teambuilding — Thiết kế doanh nghiệp' },
@@ -100,7 +101,7 @@ export async function POST() {
           text: 'Văn phòng KEYSTONE mở cửa từ Thứ 2 đến Chủ Nhật, từ 8h30 đến 18h30. Đối với các yêu cầu tư vấn doanh nghiệp, vui lòng đặt lịch trước qua hotline hoặc email để được phục vụ tốt nhất.',
         },
         {
-          text: 'Với các đối tác và khách hàng ở xa, KEYSTONE hỗ trợ tư vấn trực tuyến qua Google Meet / Zoom — đăng ký lịch hẹn qua email training@keystone.vn.',
+          text: 'Với các đối tác và khách hàng ở xa, KEYSTONE hỗ trợ tư vấn trực tuyến qua Google Meet / Zoom — đăng ký lịch hẹn qua email training@plusai.vn.',
         },
       ],
       keywords: [
@@ -124,7 +125,7 @@ export async function POST() {
     seo: {
       title: 'Liên hệ | KEYSTONE',
       description:
-        'Liên hệ KEYSTONE — đối tác đào tạo và HR Tech tin cậy. Hotline 0903 997 909, email training@keystone.vn.',
+        'Liên hệ KEYSTONE — đối tác đào tạo và HR Tech tin cậy. Hotline 0903 997 909, email info@plusai.vn.',
     },
     layout,
   }

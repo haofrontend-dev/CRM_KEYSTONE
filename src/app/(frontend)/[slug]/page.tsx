@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Navbar } from '@/components/sections/Navbar'
+import { Navbar } from '@/components/sections/NavbarServer'
 import { Footer } from '@/components/sections/Footer'
 import { BlockRenderer } from '@/components/blocks/BlockRenderer'
 import { getPayloadClient } from '@/lib/payload'
@@ -21,6 +21,7 @@ async function fetchPage(slug: string) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
+  if (slug === 'admin' || slug === 'api' || slug.startsWith('admin/')) return {}
   const page = await fetchPage(slug)
   if (!page) return {}
   const seo = (page as unknown as { seo?: { title?: string; description?: string } }).seo
@@ -38,6 +39,7 @@ export default async function DynamicPage({
   searchParams: SearchParams
 }) {
   const { slug } = await params
+  if (slug === 'admin' || slug === 'api' || slug.startsWith('admin/')) notFound()
   const sp = await searchParams
   const page = await fetchPage(slug)
   if (!page) notFound()

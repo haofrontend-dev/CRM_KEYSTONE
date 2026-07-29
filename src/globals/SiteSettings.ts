@@ -1,8 +1,12 @@
 import type { GlobalConfig } from 'payload'
+import { revalidateSite } from '@/lib/revalidate-site'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   access: { read: () => true },
+  hooks: {
+    afterChange: [revalidateSite],
+  },
   fields: [
     { name: 'siteName', type: 'text' },
     { name: 'tagline', type: 'text' },
@@ -32,6 +36,8 @@ export const SiteSettings: GlobalConfig = {
         { name: 'subSlogan', label: 'Sub slogan', type: 'text' },
         { name: 'legalName', label: 'Tên công ty (pháp lý)', type: 'text' },
         { name: 'representative', label: 'Người đại diện', type: 'text' },
+        { name: 'taxCode', label: 'Mã số thuế', type: 'text' },
+
         {
           name: 'badges',
           label: 'Logo chứng nhận (Bộ Công Thương, DMCA…)',

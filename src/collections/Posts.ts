@@ -1,9 +1,15 @@
 import type { CollectionConfig } from 'payload'
+import { revalidateSite } from '@/lib/revalidate-site'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: { useAsTitle: 'title' },
   access: { read: () => true },
+  hooks: {
+    afterChange: [revalidateSite],
+    afterDelete: [revalidateSite],
+  },
+
   fields: [
     { name: 'title', type: 'text', required: true },
     { name: 'slug', type: 'text', unique: true, required: true },

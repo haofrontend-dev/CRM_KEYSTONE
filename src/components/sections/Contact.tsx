@@ -57,14 +57,24 @@ export function Contact() {
               {siteInfo.address}
             </ContactRow>
             <ContactRow icon="phone" label="Hotline">
-              <a href={`tel:${siteInfo.hotline}`} className="hover:text-gold-400 transition">
-                {siteInfo.hotline}
-              </a>
+              {siteInfo.hotlines.map((h, i) => (
+                <span key={h}>
+                  {i > 0 && <span className="text-white/30"> · </span>}
+                  <a href={`tel:${h.replace(/\s+/g, '')}`} className="hover:text-gold-400 transition">
+                    {h}
+                  </a>
+                </span>
+              ))}
             </ContactRow>
             <ContactRow icon="mail" label="Email">
-              <a href={`mailto:${siteInfo.email}`} className="hover:text-gold-400 transition">
-                {siteInfo.email}
-              </a>
+              {siteInfo.emails.map((e, i) => (
+                <span key={e}>
+                  {i > 0 && <span className="text-white/30"> · </span>}
+                  <a href={`mailto:${e}`} className="hover:text-gold-400 transition">
+                    {e}
+                  </a>
+                </span>
+              ))}
             </ContactRow>
             <ContactRow icon="clock" label="Giờ làm việc">
               {siteInfo.workingHours}

@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { pageBlocks } from '@/blocks'
+import { revalidateSite } from '@/lib/revalidate-site'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -8,6 +9,11 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   access: { read: () => true },
+  hooks: {
+    afterChange: [revalidateSite],
+    afterDelete: [revalidateSite],
+  },
+
   fields: [
     { name: 'title', type: 'text', required: true },
     {

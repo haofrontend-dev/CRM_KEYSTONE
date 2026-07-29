@@ -93,10 +93,14 @@ async function seed() {
       siteName: 'KEYSTONE',
       tagline: 'Training & Consulting | Developing People',
       logo: logoMedia?.id || undefined,
-      hotline: '0903997909',
-      email: 'hello@keystone.vn',
+      hotline: '0903 997 909',
+      email: 'info@plusai.vn',
       address: 'Tòa nhà Barotex, Số 6 Võ Văn Kiệt, Phường Sài Gòn, Thành phố Hồ Chí Minh, Việt Nam',
       workingHours: 'Mon - Sun: 8:30am to 6:30pm',
+      footer: {
+        legalName: 'CÔNG TY TNHH 1YEARS',
+        representative: 'Ngô Hà Tiên',
+      },
     },
   })
   console.log('  ✓ Site Settings updated\n')
@@ -307,8 +311,8 @@ async function seed() {
     slug: 'navigation',
     data: {
       topBar: {
-        phone: '0903997909',
-        email: 'hello@keystone.vn',
+        phone: '0903 997 909',
+        email: 'info@plusai.vn',
         workingHours: 'Mon - Sun: 8:30am to 6:30pm',
       },
       menuItems: [

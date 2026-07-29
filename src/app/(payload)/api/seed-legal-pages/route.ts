@@ -29,7 +29,7 @@ const pages: LegalPage[] = [
       'KEYSTONE cam kết bảo vệ thông tin cá nhân của bạn và minh bạch trong việc thu thập, sử dụng dữ liệu.',
     eyebrow: 'Cam kết của chúng tôi',
     intro:
-      'CÔNG TY CỔ PHẦN CÔNG NGHỆ VÀ ĐÀO TẠO KEYSTONE ("KEYSTONE", "chúng tôi") tôn trọng quyền riêng tư của mọi khách hàng, học viên và người truy cập website. Chính sách này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn. Khi truy cập website hoặc cung cấp thông tin cho KEYSTONE, bạn đồng ý với các điều khoản được nêu dưới đây.',
+      'CÔNG TY TNHH 1YEARS ("KEYSTONE", "chúng tôi") tôn trọng quyền riêng tư của mọi khách hàng, học viên và người truy cập website. Chính sách này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn. Khi truy cập website hoặc cung cấp thông tin cho KEYSTONE, bạn đồng ý với các điều khoản được nêu dưới đây.',
     seoDescription:
       'Chính sách bảo mật của KEYSTONE — cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của khách hàng và học viên.',
     sections: [
@@ -160,7 +160,7 @@ const pages: LegalPage[] = [
     heroSubtitle: 'Giải đáp nhanh các thắc mắc phổ biến về khóa học, sự kiện và thanh toán.',
     eyebrow: 'FAQ',
     intro:
-      'Dưới đây là những câu hỏi KEYSTONE thường nhận được từ học viên và khách hàng. Nếu không tìm thấy câu trả lời, vui lòng liên hệ hotline 0903 997 909 hoặc email training@keystone.vn.',
+      'Dưới đây là những câu hỏi KEYSTONE thường nhận được từ học viên và khách hàng. Nếu không tìm thấy câu trả lời, vui lòng liên hệ hotline 0903 997 909 hoặc email info@plusai.vn.',
     seoDescription:
       'Câu hỏi thường gặp về khóa học, sự kiện, thanh toán và dịch vụ của KEYSTONE.',
     sections: [
@@ -218,7 +218,7 @@ const pages: LegalPage[] = [
       {
         title: 'Quy trình yêu cầu hoàn trả',
         items: [
-          { text: 'Gửi yêu cầu qua email training@keystone.vn kèm thông tin đơn hàng/vé.' },
+          { text: 'Gửi yêu cầu qua email info@plusai.vn kèm thông tin đơn hàng/vé.' },
           { text: 'KEYSTONE xác nhận và phản hồi trong vòng 2 ngày làm việc.' },
           { text: 'Khoản hoàn được chuyển về tài khoản gốc trong vòng 7–10 ngày làm việc.' },
         ],
@@ -304,7 +304,7 @@ const pages: LegalPage[] = [
       },
       {
         title: 'Cần hỗ trợ?',
-        paragraphs: [{ text: 'Nếu gặp khó khăn trong quá trình đặt vé, liên hệ hotline 0903 997 909 hoặc email training@keystone.vn — KEYSTONE sẽ hỗ trợ bạn hoàn tất đăng ký.' }],
+        paragraphs: [{ text: 'Nếu gặp khó khăn trong quá trình đặt vé, liên hệ hotline 0903 997 909 hoặc email info@plusai.vn — KEYSTONE sẽ hỗ trợ bạn hoàn tất đăng ký.' }],
       },
     ],
   },

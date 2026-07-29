@@ -8,7 +8,19 @@ import { navItems, siteInfo } from '@/data/site-data'
 import { Icon } from '@/components/ui/Icon'
 import { SearchOverlay } from './SearchOverlay'
 
-export function Navbar() {
+type NavbarProps = {
+  hotline?: string
+  email?: string
+  workingHours?: string
+  logoUrl?: string
+}
+
+export function Navbar({
+  hotline = siteInfo.hotline,
+  email = siteInfo.email,
+  workingHours = siteInfo.workingHours,
+  logoUrl,
+}: NavbarProps = {}) {
   const [open, setOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -24,22 +36,22 @@ export function Navbar() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
             </span>
             <Icon name="clock" size={13} className="text-gold-400" />
-            <span className="text-[12px] tracking-wide">{siteInfo.workingHours}</span>
+            <span className="text-[12px] tracking-wide">{workingHours}</span>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
             <a
-              href={`tel:${siteInfo.hotline}`}
+              href={`tel:${hotline.replace(/\s+/g, '')}`}
               className="group inline-flex items-center gap-2 px-3 h-7 rounded-full bg-white/5 hover:bg-gold-500/15 ring-1 ring-white/10 hover:ring-gold-500/40 transition"
             >
               <Icon name="phone" size={12} className="text-gold-400" />
-              <span className="font-semibold text-white group-hover:text-gold-400 transition">{siteInfo.hotline}</span>
+              <span className="font-semibold text-white group-hover:text-gold-400 transition">{hotline}</span>
             </a>
             <a
-              href={`mailto:${siteInfo.email}`}
+              href={`mailto:${email}`}
               className="hidden md:inline-flex items-center gap-2 px-3 h-7 rounded-full bg-white/5 hover:bg-gold-500/15 ring-1 ring-white/10 hover:ring-gold-500/40 transition"
             >
               <Icon name="mail" size={12} className="text-gold-400" />
-              <span className="text-white/90 group-hover:text-gold-400">{siteInfo.email}</span>
+              <span className="text-white/90 group-hover:text-gold-400">{email}</span>
             </a>
             <Link
               href="/lien-he"
@@ -56,7 +68,7 @@ export function Navbar() {
       <div className="bg-white shadow-[0_2px_20px_rgba(10,31,60,0.06)]">
         <nav className="mx-auto max-w-7xl px-6 h-[88px] flex items-center justify-between gap-8">
           <Link href="/" className="flex items-center shrink-0">
-            <Image src="/images/trang-chu/unnamed.png" alt="Keystone Logo" width={140} height={64} className="h-14 lg:h-16 w-auto object-contain" priority />
+            <Image src={logoUrl ?? '/images/trang-chu/unnamed.png'} alt={siteInfo.brand} width={140} height={64} className="h-14 lg:h-16 w-auto object-contain" priority unoptimized={!!logoUrl} />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">

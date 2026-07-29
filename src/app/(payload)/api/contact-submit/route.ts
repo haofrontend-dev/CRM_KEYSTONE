@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getPayloadClient } from '@/lib/payload'
+import { sendContactNotification } from '@/lib/mail'
 
 export async function POST(req: Request) {
   let body: { name?: unknown; email?: unknown; subject?: unknown; message?: unknown }
@@ -38,6 +39,12 @@ export async function POST(req: Request) {
       status: 'new',
     },
   })
+
+  try {
+    await sendContactNotification({ name, email, subject, message })
+  } catch (err) {
+    console.error('Gửi email thông báo liên hệ thất bại:', err)
+  }
 
   return NextResponse.json({ id: doc.id, ok: true })
 }

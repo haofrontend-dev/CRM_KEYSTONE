@@ -84,7 +84,7 @@ export async function POST() {
       eyebrow: 'Vị trí đang tuyển',
       title: 'Các vị trí tuyển dụng',
       description:
-        'Xem chi tiết vị trí phù hợp và gửi CV qua email: training@keystone.vn',
+        'Xem chi tiết vị trí phù hợp và gửi CV qua email: training@plusai.vn',
       display: 'accordion',
       groups: [
         {
@@ -123,9 +123,9 @@ export async function POST() {
     {
       blockType: 'cta',
       title: 'Sẵn sàng gia nhập KEYSTONE?',
-      body: 'Gửi CV của bạn về training@keystone.vn — chúng tôi sẽ phản hồi trong vòng 3 ngày làm việc.',
+      body: 'Gửi CV của bạn về training@plusai.vn — chúng tôi sẽ phản hồi trong vòng 3 ngày làm việc.',
       buttonLabel: 'Ứng tuyển ngay',
-      buttonHref: 'mailto:training@keystone.vn',
+      buttonHref: 'mailto:training@plusai.vn',
     },
   ]
 

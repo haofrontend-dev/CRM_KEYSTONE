@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Navbar } from '@/components/sections/Navbar'
+import { Navbar } from '@/components/sections/NavbarServer'
 import { Footer } from '@/components/sections/Footer'
 import { BlockRenderer } from '@/components/blocks/BlockRenderer'
 import { getPayloadClient } from '@/lib/payload'

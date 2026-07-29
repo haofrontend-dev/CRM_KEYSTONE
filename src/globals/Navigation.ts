@@ -1,8 +1,10 @@
 import type { GlobalConfig } from 'payload'
+import { revalidateSite } from '@/lib/revalidate-site'
 
 export const Navigation: GlobalConfig = {
   slug: 'navigation',
   access: { read: () => true },
+  hooks: { afterChange: [revalidateSite] },
   fields: [
     {
       name: 'topBar',
