@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đào tạo inhouse AI Doanh Nghiệp | KEYSTONE</title>
+  <meta name="description" content="Landing page đào tạo inhouse AI Doanh Nghiệp của KEYSTONE, thiết kế theo brand guideline +AI." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+    :root {
+      --ks-blue-700: #004D7B;
+      --ks-navy-900: #0B3154;
+      --ks-gold-500: #FCB63F;
+      --ks-charcoal: #1E242B;
+      --ks-gray-600: #6C7785;
+      --ks-gray-300: #D9DEE5;
+      --ks-sand-100: #F5F1E8;
+      --ks-blue-100: #E7F2FA;
+      --ks-gold-100: #FFF3D8;
+      --ks-white: #FFFFFF;
+      --ks-page: 1240px;
+      --ks-content: 1140px;
+      --ks-radius-sm: 8px;
+      --ks-radius-md: 12px;
+      --ks-radius-lg: 16px;
+      --ks-shadow-1: 0 8px 24px rgba(11,49,84,.08);
+      --ks-shadow-2: 0 18px 48px rgba(11,49,84,.12);
+      --ks-gradient: linear-gradient(120deg, #0B3154 0%, #004D7B 60%, #0A5A8E 100%);
+      --ks-ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Aptos, Arial, sans-serif;
+      color: var(--ks-charcoal);
+      background: #EEF3F7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p, figure { margin: 0; }
+    button, input, select { font: inherit; }
+
+    .page-shell {
+      width: min(var(--ks-page), 100%);
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: var(--ks-white);
+      box-shadow: 0 0 0 1px rgba(11,49,84,.04), var(--ks-shadow-2);
+    }
+
+    .page-shell::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 38%;
+      height: 500px;
+      pointer-events: none;
+      opacity: .07;
+      background-image:
+        linear-gradient(120deg, transparent 0 44%, var(--ks-blue-700) 44% 46%, transparent 46% 100%),
+        linear-gradient(60deg, transparent 0 58%, var(--ks-gold-500) 58% 60%, transparent 60% 100%);
+      background-size: 120px 120px;
+      z-index: 0;
+    }
+
+    main, section, .hero-banner-full { position: relative; z-index: 1; }
+
+    .container {
+      width: min(var(--ks-content), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    section { padding: 64px 0; }
+    section:nth-of-type(even):not(.hero):not(.cta-section) { background: #FAFCFD; }
+
+    .hero { padding: 0 0 64px; background: var(--ks-white); }
+    .hero-banner-full {
+      width: 100%;
+      overflow: hidden;
+      background: var(--ks-navy-900);
+      border-bottom: 4px solid var(--ks-gold-500);
+    }
+    .hero-banner-full img { width: 100%; height: auto; object-fit: cover; }
+    .hero-content { padding-top: 48px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 32px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--ks-navy-900);
+      background: var(--ks-gold-100);
+      border: 1px solid rgba(252,182,63,.5);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--ks-gold-500);
+      clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+    }
+
+    .hero h1 {
+      margin-top: 20px;
+      max-width: 820px;
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      color: var(--ks-navy-900);
+    }
+    .gradient-text { color: var(--ks-blue-700); position: relative; white-space: nowrap; }
+    .gradient-text::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -.08em;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--ks-gold-500);
+    }
+
+    .hero-lead {
+      margin-top: 24px;
+      max-width: 760px;
+      color: var(--ks-gray-600);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: var(--ks-radius-sm);
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms var(--ks-ease), box-shadow 180ms var(--ks-ease), background-color 180ms var(--ks-ease);
+      white-space: nowrap;
+    }
+    .btn-primary { color: #fff; background: var(--ks-blue-700); box-shadow: var(--ks-shadow-1); }
+    .btn-primary:hover { background: var(--ks-navy-900); transform: translateY(-2px); }
+    .btn-ghost { color: var(--ks-blue-700); background: #fff; border-color: var(--ks-blue-700); }
+    .btn-ghost:hover { background: var(--ks-blue-100); transform: translateY(-2px); }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      max-width: 860px;
+    }
+    .proof-card {
+      min-height: 112px;
+      padding: 20px;
+      border-radius: var(--ks-radius-md);
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      border-top: 3px solid var(--ks-gold-500);
+      box-shadow: var(--ks-shadow-1);
+    }
+    .proof-card strong {
+      display: block;
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -.04em;
+      color: var(--ks-blue-700);
+    }
+    .proof-card span { display: block; margin-top: 10px; color: var(--ks-gray-600); font-size: 13px; line-height: 1.45; font-weight: 600; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 8fr) minmax(260px, 4fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--ks-blue-700);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      max-width: 760px;
+      color: var(--ks-navy-900);
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+    .section-desc { max-width: 390px; color: var(--ks-gray-600); line-height: 1.65; font-size: 14px; }
+
+    .card {
+      border-radius: var(--ks-radius-md);
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      box-shadow: var(--ks-shadow-1);
+    }
+
+    .value-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .value-card { min-height: 210px; padding: 24px; position: relative; overflow: hidden; }
+    .value-card::after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      bottom: -32px;
+      width: 92px;
+      height: 92px;
+      opacity: .08;
+      background: var(--ks-blue-700);
+      clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    }
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--ks-radius-sm);
+      color: var(--ks-navy-900);
+      background: var(--ks-gold-100);
+      border: 1px solid rgba(252,182,63,.55);
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-weight: 800;
+    }
+    .value-card h3 { margin-top: 18px; color: var(--ks-navy-900); font-family: Montserrat, Aptos, Arial, sans-serif; font-size: 20px; line-height: 1.25; }
+    .value-card p { margin-top: 10px; color: var(--ks-gray-600); line-height: 1.6; font-size: 13px; }
+
+    #courses { background: var(--ks-blue-100); }
+    .filter-panel {
+      display: grid;
+      grid-template-columns: minmax(260px, 2fr) minmax(190px, 1fr) minmax(170px, .8fr) auto;
+      gap: 12px;
+      padding: 16px;
+      margin-bottom: 32px;
+      border-radius: var(--ks-radius-md);
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      box-shadow: var(--ks-shadow-1);
+    }
+    .filter-panel input, .filter-panel select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--ks-gray-300);
+      border-radius: var(--ks-radius-sm);
+      padding: 0 14px;
+      color: var(--ks-charcoal);
+      background: #fff;
+      outline: none;
+      font-size: 13px;
+      transition: border-color 180ms var(--ks-ease), box-shadow 180ms var(--ks-ease);
+    }
+    .filter-panel input:focus, .filter-panel select:focus { border-color: var(--ks-blue-700); box-shadow: 0 0 0 3px rgba(0,77,123,.10); }
+    .filter-reset {
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: var(--ks-radius-sm);
+      color: #fff;
+      background: var(--ks-navy-900);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 180ms var(--ks-ease), transform 180ms var(--ks-ease);
+      white-space: nowrap;
+    }
+    .filter-reset:hover { background: var(--ks-blue-700); transform: translateY(-1px); }
+
+    .course-group + .course-group { margin-top: 40px; }
+    .course-group-title {
+      display: flex;
+      align-items: center;
+      min-height: 64px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border-left: 6px solid var(--ks-gold-500);
+      border-radius: var(--ks-radius-sm);
+      color: #fff;
+      background: var(--ks-navy-900);
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: clamp(18px, 2.5vw, 25px);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+    }
+    .course-table-wrap {
+      overflow: hidden;
+      border-radius: var(--ks-radius-md);
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      box-shadow: var(--ks-shadow-1);
+    }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    thead th {
+      padding: 14px 12px;
+      text-align: left;
+      color: #fff;
+      background: var(--ks-blue-700);
+      border-right: 1px solid rgba(255,255,255,.16);
+      font-size: 10.5px;
+      line-height: 1.35;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    thead th:last-child { border-right: 0; }
+    thead th:nth-child(1) { width: 8%; }
+    thead th:nth-child(2) { width: 26%; }
+    thead th:nth-child(3) { width: 12%; }
+    thead th:nth-child(4) { width: 31%; }
+    thead th:nth-child(5) { width: 23%; }
+    tbody td {
+      padding: 16px 12px;
+      border-bottom: 1px solid #E8EDF2;
+      vertical-align: top;
+      color: #3C4650;
+      line-height: 1.55;
+      font-size: 12.5px;
+      overflow-wrap: anywhere;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: #F8FAFC; }
+    tbody tr:hover { background: var(--ks-gold-100); }
+    .code-cell { color: var(--ks-blue-700); font-family: Montserrat, Aptos, Arial, sans-serif; font-weight: 800; }
+    .course-name { color: var(--ks-navy-900); font-weight: 700; }
+    .duration-badge {
+      display: inline-flex;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--ks-navy-900);
+      background: var(--ks-gold-100);
+      border: 1px solid rgba(252,182,63,.5);
+      font-size: 11px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .full-image-frame {
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--ks-radius-lg);
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      box-shadow: var(--ks-shadow-1);
+    }
+    .full-image-frame img { width: 100%; height: auto; object-fit: cover; }
+
+    .process { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; counter-reset: step; }
+    .step-card { counter-increment: step; min-height: 200px; padding: 22px 18px; position: relative; overflow: hidden; }
+    .step-card::before {
+      content: counter(step, decimal-leading-zero);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--ks-radius-sm);
+      color: #fff;
+      background: var(--ks-blue-700);
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .step-card::after {
+      content: "";
+      position: absolute;
+      right: -18px;
+      top: -20px;
+      width: 72px;
+      height: 72px;
+      opacity: .08;
+      background: var(--ks-gold-500);
+      clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    }
+    .step-card h3 { margin-top: 16px; color: var(--ks-navy-900); font-family: Montserrat, Aptos, Arial, sans-serif; font-size: 17px; line-height: 1.3; }
+    .step-card p { margin-top: 8px; color: var(--ks-gray-600); line-height: 1.55; font-size: 12.5px; }
+
+    .split-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: stretch; }
+    .feature-card { padding: 28px; overflow: hidden; position: relative; }
+    .feature-card h3 { margin-bottom: 16px; color: var(--ks-navy-900); font-family: Montserrat, Aptos, Arial, sans-serif; font-size: 28px; letter-spacing: -.03em; line-height: 1.2; }
+    .feature-card p, .feature-card li { color: var(--ks-gray-600); line-height: 1.65; font-size: 14px; }
+    .pill-grid, .tool-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill, .tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 11px;
+      border-radius: 999px;
+      color: #3C4650;
+      background: #fff;
+      border: 1px solid var(--ks-gray-300);
+      font-size: 12px;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    .pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      background: var(--ks-gold-500);
+      clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+    }
+    .tool { background: var(--ks-blue-100); border-color: rgba(0,77,123,.16); color: var(--ks-navy-900); }
+
+    .info-section { padding-top: 56px; }
+    .info-section .section-head { margin-bottom: 24px; }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { padding: 24px; }
+    .info-card h3 { margin-bottom: 14px; color: var(--ks-navy-900); font-family: Montserrat, Aptos, Arial, sans-serif; font-size: 20px; line-height: 1.3; }
+    .info-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .info-list li { display: flex; align-items: flex-start; gap: 10px; color: var(--ks-gray-600); line-height: 1.55; font-size: 13px; }
+    .info-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      margin-top: 6px;
+      background: var(--ks-gold-500);
+      clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+    }
+
+    .client-stack { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+    .client-shot { display: block; width: 100%; flex: 0 0 100%; overflow: hidden; border-radius: var(--ks-radius-md); background: #fff; border: 1px solid var(--ks-gray-300); box-shadow: var(--ks-shadow-1); }
+    .client-shot img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 240ms var(--ks-ease); }
+    .client-shot:hover img { transform: scale(1.015); }
+
+    .cta-section { padding: 64px 0; background: var(--ks-sand-100); }
+    .cta-box {
+      padding: 40px;
+      border-radius: var(--ks-radius-lg);
+      color: #fff;
+      background: var(--ks-gradient);
+      box-shadow: var(--ks-shadow-2);
+      overflow: hidden;
+      position: relative;
+    }
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -42px;
+      width: 220px;
+      height: 180px;
+      opacity: .12;
+      background: var(--ks-gold-500);
+      clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    }
+    .cta-box > * { position: relative; z-index: 1; }
+    .cta-box h2 {
+      max-width: 760px;
+      font-family: Montserrat, Aptos, Arial, sans-serif;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    .cta-brand { margin-top: 16px; color: var(--ks-gold-500); font-family: Montserrat, Aptos, Arial, sans-serif; font-size: 18px; font-weight: 700; }
+    .cta-box > p:not(.cta-brand) { margin-top: 8px; max-width: 780px; color: rgba(255,255,255,.84); line-height: 1.6; font-size: 15px; }
+    .cta-contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      padding: 12px 14px;
+      border-radius: var(--ks-radius-sm);
+      color: #fff;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: 13px;
+      line-height: 1.45;
+      transition: background-color 180ms var(--ks-ease), transform 180ms var(--ks-ease);
+    }
+    .cta-contact-item:hover { background: rgba(255,255,255,.15); transform: translateY(-1px); }
+    .cta-contact-item strong { color: var(--ks-gold-500); }
+    .cta-contact-item.wide { grid-column: 1 / -1; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 980px) {
+      .container { width: min(var(--ks-content), calc(100% - 40px)); }
+      section { padding: 56px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 16px; }
+      .section-desc { max-width: 720px; }
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
+      .filter-panel { grid-template-columns: repeat(2, 1fr); }
+      .filter-panel input { grid-column: 1 / -1; }
+      .process { grid-template-columns: repeat(3, 1fr); }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 32px, var(--ks-content)); }
+      section { padding: 48px 0; }
+      .hero { padding-bottom: 48px; }
+      .hero-content { padding-top: 32px; }
+      .hero h1 { font-size: clamp(36px, 11vw, 48px); }
+      .gradient-text { white-space: normal; }
+      .hero-lead { font-size: 15px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .proof-row { grid-template-columns: 1fr; }
+      .value-grid, .split-grid, .client-stack, .cta-contact-grid { grid-template-columns: 1fr; }
+      .filter-panel { grid-template-columns: 1fr; padding: 12px; }
+      .filter-panel input { grid-column: auto; }
+      .process { grid-template-columns: 1fr; }
+      .course-group + .course-group { margin-top: 32px; }
+      .course-group-title { padding: 14px 16px; min-height: 58px; }
+      .course-table-wrap { overflow: visible; border: 0; box-shadow: none; background: transparent; }
+      table, tbody { display: block; width: 100%; }
+      thead { display: none; }
+      tbody tr {
+        display: block;
+        margin-bottom: 14px;
+        padding: 8px 16px;
+        border-radius: var(--ks-radius-md);
+        background: #fff !important;
+        border: 1px solid var(--ks-gray-300);
+        box-shadow: var(--ks-shadow-1);
+      }
+      tbody td {
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid #E8EDF2;
+        font-size: 12.5px;
+      }
+      tbody td:last-child { border-bottom: 0; }
+      tbody td::before { color: var(--ks-gray-600); font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+      tbody td:nth-child(1)::before { content: "Viết tắt"; }
+      tbody td:nth-child(2)::before { content: "Khoá đào tạo"; }
+      tbody td:nth-child(3)::before { content: "Thời lượng"; }
+      tbody td:nth-child(4)::before { content: "Nội dung trọng tâm"; }
+      tbody td:nth-child(5)::before { content: "Đối tượng"; }
+      .cta-box { padding: 28px 20px; }
+      .cta-contact-item.wide { grid-column: auto; }
+    }
+
+    @media (max-width: 420px) {
+      .container { width: min(100% - 24px, var(--ks-content)); }
+      tbody td { grid-template-columns: 1fr; gap: 5px; }
+      .value-card, .feature-card, .info-card { padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <main id="top">
+      <section class="hero">
+        <div class="hero-banner-full" aria-label="Banner đào tạo AI doanh nghiệp">
+          <img src="https://i.ibb.co/JRNk3Kyn/banner-dao-tao-ai-dn2.webp" alt="Banner đào tạo inhouse AI doanh nghiệp" />
+        </div>
+
+        <div class="container hero-content">
+          <span class="eyebrow">Practical &amp; Premium</span>
+          <h1>Đào tạo inhouse <span class="gradient-text">AI Doanh Nghiệp</span></h1>
+          <p class="hero-lead">KEYSTONE thiết kế và triển khai các chương trình đào tạo AI thực chiến, bám sát nghiệp vụ từng phòng ban, giúp nhân sự biết dùng AI đúng cách, an toàn và tạo ra kết quả đo được.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#courses">Xem danh mục khoá</a>
+            <a class="btn btn-ghost" href="#contact">Nhận tư vấn chương trình</a>
+          </div>
+          <div class="proof-row" aria-label="Năng lực triển khai">
+            <div class="proof-card"><strong>2018</strong><span>Kinh nghiệm đào tạo về AI</span></div>
+            <div class="proof-card"><strong>100+</strong><span>Khách hàng doanh nghiệp đã triển khai</span></div>
+            <div class="proof-card"><strong>30</strong><span>Học viên tiêu chuẩn mỗi lớp</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Giá trị chính</div>
+              <h2 class="section-title">Không chỉ học công cụ. Đội ngũ học cách giải quyết công việc bằng AI.</h2>
+            </div>
+            <p class="section-desc">Chương trình được tổ chức theo chuỗi tác vụ thực tế, giúp học viên đi từ hiểu nền tảng, thực hành trên dữ liệu thật đến chuẩn hoá quy trình ứng dụng trong công việc.</p>
+          </div>
+          <div class="value-grid">
+            <article class="card value-card"><div class="value-icon">01</div><h3>Thực chiến</h3><p>Học bằng tình huống, dữ liệu, tài liệu và đầu việc gần với nghiệp vụ thật.</p></article>
+            <article class="card value-card"><div class="value-icon">02</div><h3>Tuỳ chỉnh</h3><p>Thiết kế chương trình theo công cụ, phòng ban, ngành nghề và mục tiêu doanh nghiệp.</p></article>
+            <article class="card value-card"><div class="value-icon">03</div><h3>Ứng dụng</h3><p>Đào tạo theo chuỗi việc liền mạch để xử lý trọn vẹn vấn đề.</p></article>
+            <article class="card value-card"><div class="value-icon">04</div><h3>Chuyển giao</h3><p>Cung cấp tài liệu điện tử, bài tập, hướng dẫn thao tác và hỗ trợ sau lớp.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Danh mục chương trình</div>
+              <h2 class="section-title">Các khoá huấn luyện AI dành cho doanh nghiệp</h2>
+            </div>
+            <p class="section-desc">Lọc nhanh theo nhu cầu để chọn chương trình phù hợp cho từng nhóm phòng ban, cấp độ và thời lượng đào tạo.</p>
+          </div>
+
+          <div class="filter-panel" aria-label="Bộ lọc khóa học">
+            <input id="courseSearch" type="search" placeholder="Tìm theo tên khoá, mô tả hoặc mã..." />
+            <select id="audienceFilter" aria-label="Lọc theo đối tượng">
+              <option value="all">Tất cả đối tượng</option>
+              <option value="văn phòng">Văn phòng / Vận hành / Quản lý</option>
+              <option value="nhân sự">Nhân sự / L&amp;D / Trainer</option>
+              <option value="marketing">Marketing / Sales / CSKH</option>
+              <option value="tài chính">Tài chính / Kế toán / Kiểm toán</option>
+              <option value="supply chain">Supply chain / Sản xuất</option>
+              <option value="it">IT / Dev / Tech</option>
+              <option value="xnk">XNK / ECOM / TMĐT</option>
+            </select>
+            <select id="durationFilter" aria-label="Lọc theo thời lượng">
+              <option value="all">Tất cả thời lượng</option>
+              <option value="1 ngày">1 ngày</option>
+              <option value="1-2 ngày">1–2 ngày</option>
+              <option value="2 ngày">2 ngày</option>
+              <option value="2-3 ngày">2–3 ngày</option>
+            </select>
+            <button id="resetFilters" class="filter-reset" type="button">Xoá lọc</button>
+          </div>
+
+          <div class="course-group">
+            <h3 class="course-group-title">8 KHOÁ ĐÀO TẠO AI NÂNG CAO CHO DOANH NGHIỆP</h3>
+            <div class="course-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Viết tắt</th>
+                    <th>Khoá huấn luyện/đào tạo</th>
+                    <th>Thời lượng</th>
+                    <th>Nội dung trọng tâm</th>
+                    <th>Đối tượng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-duration="1-2 ngày"><td class="code-cell">MAIW</td><td class="course-name">MASTERING AI FOR WORK<br>Level 1-2</td><td><span class="duration-badge">1-2 ngày</span></td><td>Prompting, tổng hợp và xử lý thông tin, tách chữ, suy luận, kiểm tra độ chính xác.</td><td>Khối văn phòng, vận hành, cấp quản lý, CEO</td></tr>
+                  <tr data-duration="1-2 ngày"><td class="code-cell">MAIDA</td><td class="course-name">MASTERING AI FOR DATA ANALYTICS | EXCEL<br>Dùng Ai để phân tích dữ liệu</td><td><span class="duration-badge">1-2 ngày</span></td><td>Phân tích Excel/CSV/Google Sheet, tạo dashboard động, báo cáo, cảnh báo và tối ưu hoạt động.</td><td>Khối văn phòng, vận hành, cấp quản lý, CEO</td></tr>
+                  <tr data-duration="1 ngày"><td class="code-cell">MAIHR</td><td class="course-name">MASTERING AI FOR HR, L&amp;D, TRAINER</td><td><span class="duration-badge">1 ngày</span></td><td>AI chuyên sâu cho nghiệp vụ hành chính, nhân sự, tuyển dụng, đào tạo, L&amp;D,</td><td>Khối nhân sự, L&amp;D, Trainer, cấp quản lý</td></tr>
+                  <tr data-duration="1 ngày"><td class="code-cell">MAICG</td><td class="course-name">MASTERING AI WITH COPILOT | GEMINI | CLAUDE | GPT</td><td><span class="duration-badge">1 ngày</span></td><td>Ứng dung AI theo hệ sinh thái riêng của DN</td><td>Khối văn phòng, vận hành, cấp quản lý, CEO</td></tr>
+                  <tr data-duration="1 ngày"><td class="code-cell">MAISO</td><td class="course-name">MASTERING AI FOR SUPPLY CHAIN | OPERATION</td><td><span class="duration-badge">1 ngày</span></td><td>AI cho nghiệp vụ chuỗi cung ứng và vận hành.</td><td>Khối supply chain, procurement, purchasing, vận hành</td></tr>
+                  <tr data-duration="1 ngày"><td class="code-cell">MAIF</td><td class="course-name">MASTERING AI FOR FACTORY</td><td><span class="duration-badge">1 ngày</span></td><td>Tách chữ, nhập liệu, phân tích dữ liệu và hỗ trợ nghiệp vụ khối sản xuất.</td><td>Khối sản xuất, nhà máy, thu mua, vận hành, công đoàn</td></tr>
+                  <tr data-duration="1 ngày"><td class="code-cell">MAGW</td><td class="course-name">MASTERING AI FOR GAME &amp; WEBAPP</td><td><span class="duration-badge">1 ngày</span></td><td>Tạo game, ứng dụng, tools, app hỗ trợ công việc</td><td>Đào tạo, giảng viên, chuyên gia, nhà thuyết trình, giáo viên</td></tr>
+                  <tr data-duration="2-3 ngày"><td class="code-cell">MAM</td><td class="course-name">MASTERING AI FOR MEDIA</td><td><span class="duration-badge">2 – 3 ngày</span></td><td>Làm ấn phẩm sáng tạo &amp; truyền thông: Image, banner, poster, infographic, music, podcast, voice, video</td><td>Khối văn phòng, phòng thiết kế, marketing, Agency, khối đào tạo &amp; trình bày</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="course-group">
+            <h3 class="course-group-title">8 CHƯƠNG TRÌNH AGENTIC AI - NHÂN SỰ SỐ - KỸ NĂNG SỐ</h3>
+            <div class="course-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Viết tắt</th>
+                    <th>Khoá huấn luyện/đào tạo</th>
+                    <th>Thời lượng</th>
+                    <th>Nội dung trọng tâm</th>
+                    <th>Đối tượng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-duration="2 ngày"><td class="code-cell">AAW</td><td class="course-name">AGENTIC AI FOR WORK<br>Level 1 - 2</td><td><span class="duration-badge">2 ngày</span></td><td>Tự động hoá tác vụ văn phòng, thao tác với máy tính, điều khiển AI Agent.</td><td>Khối văn phòng, vận hành, cấp quản lý, CEO</td></tr>
+                  <tr data-duration="2 ngày"><td class="code-cell">AAMS</td><td class="course-name">AGENTIC AI FOR MARKETING | SALES</td><td><span class="duration-badge">2 ngày</span></td><td>AI Agent viết bài, nghiên cứu thị trường, làm kế hoạch, chạy ads, tìm lead, cào dữ liệu,…</td><td>Khối kinh doanh, Marketing, CSKH, CEO, Digital Marketing agency</td></tr>
+                  <tr data-duration="2 ngày"><td class="code-cell">AAHR</td><td class="course-name">AGENTIC AI FOR HR, L&amp;D, Trainer</td><td><span class="duration-badge">2 ngày</span></td><td>Agent làm hồ sơ, tuyển dụng đánh giá cv, onboarding, thuyết trình,</td><td>Khối nhân sự, L&amp;D, Trainer, cấp quản lý</td></tr>
+                  <tr data-duration="2 ngày"><td class="code-cell">AAFA</td><td class="course-name">AGENTIC AI FOR FINANCE ACCOUNTING</td><td><span class="duration-badge">2 ngày</span></td><td>Phân tích dữ liệu, rà soát, đối soát, báo cáo tự động,</td><td>Khối Tài chính, CFO, Kế toán, Kiểm toán, CEO</td></tr>
+                  <tr data-duration="2 ngày"><td class="code-cell">AAC</td><td class="course-name">AGENTIC AI – CODEX | ANTIGRAVITY | CLAUDE</td><td><span class="duration-badge">2 ngày</span></td><td>Agentic AI theo hệ sinh thái DN lựa chọn</td><td>AI AGENT theo hệ sinh thái AI</td></tr>
+                  <tr data-duration="2-3 ngày"><td class="code-cell">AAGW</td><td class="course-name">GO GLOBAL WITH AI AGENT</td><td><span class="duration-badge">2-3 ngày</span></td><td>Listing, tối ưu, báo cáo, đối soát, vận hành, quản trị, radar thị trường, tìm sản phẩm win,…</td><td>Doanh nghiệp XNK, ECOM, TMĐT</td></tr>
+                  <tr data-duration="2-3 ngày"><td class="code-cell">AAVB</td><td class="course-name">VIBE CODING FOR IT/DEV/TECH</td><td><span class="duration-badge">2 – 3 Ngày</span></td><td>Vibe coding cho dev và cả người nontech, rút ngắn thời gian tìm hiểu</td><td>Kỹ thuật lập trình với AI dành cho người làm kỹ thuật</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="customize">
+        <div class="container">
+          <figure class="full-image-frame">
+            <img src="https://i.ibb.co/rKHVbYwx/thiet-ke-theo-dn.webp" alt="Thiết kế chương trình AI theo nhu cầu doanh nghiệp" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="method">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Phương pháp triển khai</div>
+              <h2 class="section-title">Từ khảo sát use case đến lớp học thực chiến</h2>
+            </div>
+            <p class="section-desc">Mỗi chương trình được tổ chức có cấu trúc, có khảo sát bắt buộc và có đầu ra rõ ràng cho học viên.</p>
+          </div>
+          <div class="process">
+            <article class="card step-card"><h3>Khảo sát</h3><p>Gửi form lấy ý kiến, nhu cầu, vấn đề và use case thực tế từ học viên.</p></article>
+            <article class="card step-card"><h3>Viết outline</h3><p>Chọn mục tiêu, chuỗi tác vụ, dữ liệu mẫu và tiêu chí đầu ra phù hợp.</p></article>
+            <article class="card step-card"><h3>Soạn chương trình</h3><p>Biên soạn tài liệu, bài tập, prompt mẫu và quy trình thao tác trong lớp.</p></article>
+            <article class="card step-card"><h3>Triển khai</h3><p>Đào tạo trực tiếp tại doanh nghiệp, thực hành 100% trên laptop.</p></article>
+            <article class="card step-card"><h3>Hỗ trợ</h3><p>Hỏi đáp trên nhóm lớp, giảng viên/trợ giảng phản hồi mỗi ngày.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container split-grid">
+          <article class="card feature-card">
+            <div class="section-kicker">Phương thức tổ chức</div>
+            <h3>Đào tạo theo chức năng</h3>
+            <div class="pill-grid" aria-label="Nhóm đào tạo">
+              <span class="pill">Backoffice: Nhân sự, kế toán, tài chính, pháp lý</span>
+              <span class="pill">Marketing, Sales, CSKH</span>
+              <span class="pill">Thiết kế, truyền thông, media</span>
+              <span class="pill">Lãnh đạo, quản lý, Ban CĐS</span>
+            </div>
+          </article>
+          <article class="card feature-card">
+            <div class="section-kicker">Công cụ sử dụng</div>
+            <h3>Ưu tiên AI chính hãng, bảo mật và trải nghiệm ổn định.</h3>
+            <div class="tool-cloud" aria-label="Danh sách công cụ AI">
+              <span class="tool">ChatGPT</span><span class="tool">Gemini</span><span class="tool">Copilot</span><span class="tool">Claude</span><span class="tool">Perplexity</span><span class="tool">Genspark</span><span class="tool">NotebookLM</span><span class="tool">Codex</span><span class="tool">Antigravity</span><span class="tool">OpenClaw</span><span class="tool">Midjourney</span><span class="tool">DALL·E</span><span class="tool">Veo</span><span class="tool">Imagen</span><span class="tool">RunwayML</span><span class="tool">Kling</span><span class="tool">Suno</span><span class="tool">Canva</span><span class="tool">Gamma</span><span class="tool">n8n</span><span class="tool">Make</span><span class="tool">Zapier</span><span class="tool">Cursor</span><span class="tool">Lovable</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Thông tin lớp học</div>
+              <h2 class="section-title">Chuẩn tổ chức rõ ràng, dễ phối hợp với doanh nghiệp</h2>
+            </div>
+          </div>
+          <div class="info-grid">
+            <article class="card info-card">
+              <h3>Lớp học tiêu chuẩn</h3>
+              <ul class="info-list">
+                <li>30 học viên/lớp.</li>
+                <li>1 ngày = 06 giờ làm việc: 8:30 – 12:00 và 13:15 – 16:30.</li>
+                <li>Địa điểm đào tạo tại doanh nghiệp hoặc nơi khách hàng chỉ định.</li>
+                <li>Cung cấp chứng nhận cho học viên tham dự trên 80% chương trình.</li>
+              </ul>
+            </article>
+            <article class="card info-card">
+              <h3>Mức đầu tư</h3>
+              <ul class="info-list">
+                <li>Học viên phát sinh áp dụng theo công thức 60% × mức đầu tư / 30.</li>
+                <li>Giảng phí chưa bao gồm VAT, phí thuê phòng, tea break, di chuyển ngoại thành và lưu trú.</li>
+                <li>Hoá đơn được phát hành sau ngày đào tạo.</li>
+              </ul>
+            </article>
+            <article class="card info-card">
+              <h3>Lưu ý kỹ thuật</h3>
+              <ul class="info-list">
+                <li>Lớp nền tảng có thể dùng AI miễn phí với tài khoản Gmail.</li>
+                <li>Lớp nâng cao cần tài khoản Pro chính hãng theo khuyến nghị từng lớp.</li>
+                <li>Lớp trên 10 học viên nên có thiết bị phát Wi-Fi 5G riêng để bảo đảm trải nghiệm.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="clients">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Triển khai thực tế</div>
+              <h2 class="section-title">Hình ảnh đào tạo và ứng dụng AI tại doanh nghiệp</h2>
+            </div>
+            <p class="section-desc">Một số hình ảnh Giảng viên KEYSTONE triển khai trực tiếp cho khách hàng doanh nghiệp.</p>
+          </div>
+          <div class="client-stack">
+            <figure class="client-shot"><img src="https://i.ibb.co/JjfjQ1BJ/khach-hang-da-trien-khai-0.webp" alt="Hình ảnh khách hàng đã triển khai AI 01" /></figure>
+            <figure class="client-shot"><img src="https://i.ibb.co/Ngnz0Ffb/khach-hang-da-trien-khai-ai-1.webp" alt="Hình ảnh khách hàng đã triển khai AI 02" /></figure>
+            <figure class="client-shot"><img src="https://i.ibb.co/4RHKwStp/khach-hang-da-trien-khai-ai-2.webp" alt="Hình ảnh khách hàng đã triển khai AI 03" /></figure>
+            <figure class="client-shot"><img src="https://i.ibb.co/99p0RrwJ/khach-hang-da-trien-khai-ai-3.webp" alt="Hình ảnh khách hàng đã triển khai AI 04" /></figure>
+            <figure class="client-shot"><img src="https://i.ibb.co/VWBs4Myk/khach-hang-da-trien-khai-ai-4.webp" alt="Hình ảnh khách hàng đã triển khai AI 05" /></figure>
+            <figure class="client-shot"><img src="https://i.ibb.co/83BYcCj/khach-hang-da-trien-khai-ai-5.webp" alt="Hình ảnh khách hàng đã triển khai AI 06" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="cta-section">
+        <div class="container">
+          <div class="cta-box">
+            <h2>KEYSTONE - Thương hiệu đào tạo AI chuyên nghiệp</h2>
+            <p class="cta-brand">KEYSTONE Training &amp; Consulting</p>
+            <p>Giải pháp Đào tạo và Ứng Dụng AI Chuyên nghiệp tại Doanh Nghiệp</p>
+            <div class="cta-contact-grid">
+              <a class="cta-contact-item" href="tel:0933088286"><strong>Điện thoại:&nbsp;</strong>0933 088 286 - Mrs. Tiên - Giờ hành chánh</a>
+              <a class="cta-contact-item" href="tel:0903997909"><strong>Điện thoại:&nbsp;</strong>0903 99 79 09 - Mr. Thức - Từ 20:00 – 23:00</a>
+              <a class="cta-contact-item wide" href="mailto:training@keystone.vn"><strong>Mail:&nbsp;</strong>training@keystone.vn | training@keystone.com.vn</a>
+              <a class="cta-contact-item wide" href="https://keystone.vn" target="_blank" rel="noopener"><strong>Website:&nbsp;</strong>keystone.com.vn hoặc keystone.vn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('courseSearch');
+    const audienceFilter = document.getElementById('audienceFilter');
+    const durationFilter = document.getElementById('durationFilter');
+    const resetFilters = document.getElementById('resetFilters');
+    const rows = Array.from(document.querySelectorAll('#courses tbody tr'));
+
+    function normalize(text) {
+      return (text || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[–—]/g, '-')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function applyFilters() {
+      const keyword = normalize(searchInput.value);
+      const audience = normalize(audienceFilter.value);
+      const duration = normalize(durationFilter.value);
+
+      rows.forEach(row => {
+        const text = normalize(row.innerText);
+        const rowDuration = normalize(row.dataset.duration || '');
+        const matchKeyword = !keyword || text.includes(keyword);
+        const matchAudience = audience === 'all' || text.includes(audience);
+        const matchDuration = duration === 'all' || rowDuration === duration;
+        row.classList.toggle('hidden', !(matchKeyword && matchAudience && matchDuration));
+      });
+    }
+
+    resetFilters.addEventListener('click', () => {
+      searchInput.value = '';
+      audienceFilter.value = 'all';
+      durationFilter.value = 'all';
+      applyFilters();
+    });
+
+    [searchInput, audienceFilter, durationFilter].forEach(el => {
+      el.addEventListener('input', applyFilters);
+      el.addEventListener('change', applyFilters);
+    });
+
+    applyFilters();
+  </script>
+</body>
+</html>

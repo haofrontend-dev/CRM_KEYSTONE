@@ -15,6 +15,7 @@ const VALID_BLOCK_TYPES = new Set([
   'hero', 'heroSlider', 'intro', 'stats', 'features', 'categoryList',
   'team', 'testimonials', 'services', 'posts', 'events', 'split',
   'image', 'partners', 'map', 'contactForm', 'cta',
+  'featureCards', 'featureList', 'legalDoc', 'rawHtml',
 ])
 
 export async function POST(req: Request) {

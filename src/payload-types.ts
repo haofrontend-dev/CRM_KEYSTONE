@@ -752,6 +752,39 @@ export interface Page {
         blockName?: string | null;
         blockType: 'cta';
       }
+    | {
+        /**
+         * Tên gợi nhớ để nhận diện block trong danh sách. VD: "Section bảng khoá học".
+         */
+        label?: string | null;
+        /**
+         * Dán phần HTML bên trong <body> (không cần <html>, <head>, <body>). Ảnh dùng đường dẫn tuyệt đối, VD: /media/banner.webp
+         */
+        html?: string | null;
+        /**
+         * Dán nội dung bên trong <style> (không kèm thẻ <style>). Các selector html/body/:root/* sẽ được ánh xạ vào khung của block.
+         */
+        css?: string | null;
+        /**
+         * JS tuỳ chọn, chạy sau khi HTML đã render. Biến "root" trỏ tới phần tử bao ngoài của block.
+         */
+        js?: string | null;
+        /**
+         * Giới hạn CSS trong block này (khuyên bật). Tắt nếu cố ý muốn CSS áp dụng cho toàn trang.
+         */
+        scopeCss?: boolean | null;
+        /**
+         * Thực thi các thẻ <script> inline nằm trong phần HTML ở trên.
+         */
+        runScripts?: boolean | null;
+        /**
+         * Nền cho vùng bao quanh block, VD: #EEF3F7. Dùng khi CSS gốc đặt màu nền trên body.
+         */
+        background?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'rawHtml';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -1353,6 +1386,19 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        rawHtml?:
+          | T
+          | {
+              label?: T;
+              html?: T;
+              css?: T;
+              js?: T;
+              scopeCss?: T;
+              runScripts?: T;
+              background?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1437,6 +1483,7 @@ export interface SiteSetting {
     subSlogan?: string | null;
     legalName?: string | null;
     representative?: string | null;
+    taxCode?: string | null;
     /**
      * Mỗi badge: tải ảnh lên HOẶC dán URL ảnh ngoài (vd DMCA).
      */
@@ -1566,6 +1613,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
         subSlogan?: T;
         legalName?: T;
         representative?: T;
+        taxCode?: T;
         badges?:
           | T
           | {

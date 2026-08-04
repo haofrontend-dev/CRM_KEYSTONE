@@ -55,6 +55,7 @@ const VALID_BLOCKS = [
   'hero', 'heroSlider', 'intro', 'stats', 'features', 'categoryList',
   'team', 'testimonials', 'services', 'posts', 'events', 'split',
   'image', 'partners', 'map', 'contactForm', 'cta',
+  'featureCards', 'featureList', 'legalDoc', 'rawHtml',
 ]
 
 type ImportResult = {

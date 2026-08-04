@@ -559,6 +559,69 @@ export const LegalDocBlock: Block = {
   ],
 }
 
+export const RawHtmlBlock: Block = {
+  slug: 'rawHtml',
+  labels: { singular: 'HTML / CSS thuần', plural: 'HTML / CSS blocks' },
+  admin: { group: 'Nâng cao' },
+  fields: [
+    {
+      name: 'label',
+      type: 'text',
+      admin: { description: 'Tên gợi nhớ để nhận diện block trong danh sách. VD: "Section bảng khoá học".' },
+    },
+    {
+      name: 'html',
+      type: 'code',
+      admin: {
+        language: 'html',
+        description:
+          'Dán phần HTML bên trong <body> (không cần <html>, <head>, <body>). Ảnh dùng đường dẫn tuyệt đối, VD: /media/banner.webp',
+      },
+    },
+    {
+      name: 'css',
+      type: 'code',
+      admin: {
+        language: 'css',
+        description:
+          'Dán nội dung bên trong <style> (không kèm thẻ <style>). Các selector html/body/:root/* sẽ được ánh xạ vào khung của block.',
+      },
+    },
+    {
+      name: 'js',
+      type: 'code',
+      admin: {
+        language: 'javascript',
+        description:
+          'JS tuỳ chọn, chạy sau khi HTML đã render. Biến "root" trỏ tới phần tử bao ngoài của block.',
+      },
+    },
+    {
+      name: 'scopeCss',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: {
+        description:
+          'Giới hạn CSS trong block này (khuyên bật). Tắt nếu cố ý muốn CSS áp dụng cho toàn trang.',
+      },
+    },
+    {
+      name: 'runScripts',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: { description: 'Thực thi các thẻ <script> inline nằm trong phần HTML ở trên.' },
+    },
+    {
+      name: 'background',
+      type: 'text',
+      admin: {
+        description:
+          'Nền cho vùng bao quanh block, VD: #EEF3F7. Dùng khi CSS gốc đặt màu nền trên body.',
+      },
+    },
+  ],
+}
+
 export const pageBlocks = [
   HeroSliderBlock,
   HeroBlock,
@@ -580,4 +643,5 @@ export const pageBlocks = [
   ContactFormBlock,
   LegalDocBlock,
   CtaBlock,
+  RawHtmlBlock,
 ]

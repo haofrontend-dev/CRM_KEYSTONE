@@ -18,6 +18,7 @@ import { EventsBlock, type EventsBlockData } from './EventsBlock'
 import { MapBlock, type MapBlockData } from './MapBlock'
 import { ContactFormBlock, type ContactFormBlockData } from './ContactFormBlock'
 import { LegalDocBlock, type LegalDocBlockData } from './LegalDocBlock'
+import { RawHtmlBlock, type RawHtmlBlockData } from './RawHtmlBlock'
 
 type AnyBlock = { blockType: string; id?: string } & Record<string, unknown>
 
@@ -92,6 +93,8 @@ export function BlockRenderer({
             return <ContactFormBlock key={key} {...(b as unknown as ContactFormBlockData)} />
           case 'legalDoc':
             return <LegalDocBlock key={key} {...(b as unknown as LegalDocBlockData)} />
+          case 'rawHtml':
+            return <RawHtmlBlock key={key} {...(b as unknown as RawHtmlBlockData)} />
           default:
             return null
         }
